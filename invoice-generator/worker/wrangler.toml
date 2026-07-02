@@ -1,0 +1,10 @@
+name = "invoice-api"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+
+[[r2_buckets]]
+binding = "INVOICES_BUCKET"
+bucket_name = "invoices"
+
+[vars]
+AUTH_PASSWORD = "changeme123"

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Invoice — FertiSure (HSIL) · Om Thakur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ─── PAGE SETUP ─── */
+@page {
+  margin: 18mm 18mm 20mm 18mm;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink:     #0f1117;
+  --ink2:    #2d3142;
+  --ink3:    #5a5f72;
+  --rule:    #d9dbe6;
+  --gold:    #b8924a;
+  --gold2:   #e8c97a;
+  --bg-alt:  #f7f7fa;
+  --white:   #ffffff;
+  --radius:  4px;
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --sans:    'DM Sans', system-ui, sans-serif;
+  --green:   #2a7d4f;
+  --green-bg:#edf7f1;
+}
+
+html, body {
+  background: #e8e8ec;
+  font-family: var(--sans);
+  font-size: 10.5pt;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ─── A4 SHEET ─── */
+.sheet {
+  width: 210mm;
+  margin: 20px auto;
+  background: var(--white);
+  box-shadow: 0 8px 48px rgba(0,0,0,0.18);
+  padding: 18mm 18mm 20mm;
+  position: relative;
+}
+
+@media print {
+  html, body { background: white; margin: 0; }
+  .sheet {
+    width: 100%;
+    margin: 0;
+    padding: 18mm 18mm 20mm;
+    box-shadow: none;
+  }
+}
+
+/* ─── DECORATIVE BORDER LINES ─── */
+.sheet::before {
+  content: '';
+  position: absolute;
+  top: 10mm;
+  left: 10mm;
+  right: 10mm;
+  bottom: 10mm;
+  border: 0.5pt solid var(--rule);
+  pointer-events: none;
+}
+.sheet::after {
+  content: '';
+  position: absolute;
+  top: 11.5mm;
+  left: 11.5mm;
+  right: 11.5mm;
+  bottom: 11.5mm;
+  border: 0.5pt solid #c8ab6a44;
+  pointer-events: none;
+}
+
+/* ─── HEADER ─── */
+.doc-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 16px;
+  padding-bottom: 14pt;
+  border-bottom: 1.5pt solid var(--ink);
+  margin-bottom: 20pt;
+}
+
+.doc-header .brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.doc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
+  font-size: 7pt;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.doc-badge::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.doc-title {
+  font-family: var(--serif);
+  font-size: 32pt;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.doc-sub {
+  font-family: var(--sans);
+  font-size: 8.5pt;
+  color: var(--ink3);
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.doc-meta {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 4px;
+}
+.doc-meta .meta-label {
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink3);
+  font-weight: 500;
+}
+.doc-meta .meta-value {
+  font-family: var(--serif);
+  font-size: 12pt;
+  font-weight: 600;
+  color: var(--ink2);
+}
+.meta-sep { height: 8px; }
+
+/* ─── SECTION ─── */
+.section {
+  margin-bottom: 14pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7pt;
+}
+.section-num {
+  font-family: var(--serif);
+  font-size: 8pt;
+  color: var(--gold);
+  font-weight: 600;
+  min-width: 16px;
+}
+.section-title {
+  font-family: var(--sans);
+  font-size: 7pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink2);
+}
+.section-line {
+  flex: 1;
+  height: 0.5pt;
+  background: var(--rule);
+}
+
+/* ─── PARTIES GRID ─── */
+.parties-grid {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 0;
+  margin-bottom: 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.party-card {
+  padding: 12pt 14pt;
+  background: var(--bg-alt);
+  position: relative;
+}
+.party-card.from {
+  border-radius: var(--radius) 0 0 var(--radius);
+  border: 0.5pt solid var(--rule);
+  border-right: none;
+}
+.party-card.to {
+  border-radius: 0 var(--radius) var(--radius) 0;
+  border: 0.5pt solid var(--rule);
+  border-left: none;
+  background: #f0f1f8;
+}
+
+.party-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  position: relative;
+}
+.party-divider::after {
+  content: '→';
+  color: white;
+  font-size: 11pt;
+}
+
+.party-role {
+  font-size: 6.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 6pt;
+}
+.party-name {
+  font-family: var(--serif);
+  font-size: 14pt;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6pt;
+  line-height: 1.2;
+}
+.party-detail {
+  font-size: 8.5pt;
+  color: var(--ink3);
+  line-height: 1.7;
+}
+.party-detail a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* ─── INVOICE TABLE ─── */
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+}
+
+.invoice-table thead th {
+  font-size: 6.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--ink3);
+  padding: 8pt 10pt;
+  text-align: left;
+  border-bottom: 1.5pt solid var(--ink);
+  background: var(--bg-alt);
+}
+.invoice-table thead th:last-child,
+.invoice-table thead th:nth-child(3),
+.invoice-table thead th:nth-child(4) {
+  text-align: right;
+}
+
+.invoice-table tbody td {
+  padding: 9pt 10pt;
+  border-bottom: 0.5pt solid var(--rule);
+  color: var(--ink2);
+  vertical-align: top;
+}
+.invoice-table tbody td:first-child {
+  color: var(--ink);
+  font-weight: 500;
+}
+.invoice-table tbody td:last-child,
+.invoice-table tbody td:nth-child(3),
+.invoice-table tbody td:nth-child(4) {
+  text-align: right;
+  font-family: var(--sans);
+  font-weight: 500;
+}
+
+.item-desc {
+  font-size: 7.5pt;
+  color: var(--ink3);
+  margin-top: 2pt;
+  font-weight: 400;
+}
+
+/* ─── TOTALS ─── */
+.totals-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0;
+}
+
+.totals-box {
+  width: 320px;
+}
+
+.totals-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6pt 10pt;
+  font-size: 8.5pt;
+  color: var(--ink2);
+  border-bottom: 0.5pt solid var(--rule);
+}
+.totals-row .label { font-weight: 400; }
+.totals-row .value { font-weight: 500; text-align: right; }
+
+.totals-row.grand {
+  background: var(--ink);
+  border-bottom: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 10pt;
+}
+.totals-row.grand .label {
+  color: rgba(255,255,255,0.6);
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+.totals-row.grand .value {
+  font-family: var(--sans);
+  font-size: 18pt;
+  font-weight: 600;
+  color: var(--gold2);
+  letter-spacing: -0.02em;
+}
+
+/* ─── STATUS BADGE ─── */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4pt 10pt;
+  border-radius: 20px;
+  font-size: 7pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.status-badge.pending {
+  background: #fff8e6;
+  color: #b8860b;
+  border: 0.5pt solid #e8d49c;
+}
+.status-badge.paid {
+  background: var(--green-bg);
+  color: var(--green);
+  border: 0.5pt solid #b8dcc5;
+}
+.status-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ─── PAYMENT INFO GRID ─── */
+.payment-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8pt;
+}
+
+.payment-info-card {
+  border: 0.5pt solid var(--rule);
+  border-radius: var(--radius);
+  padding: 10pt 12pt;
+  background: var(--bg-alt);
+}
+
+.payment-info-title {
+  font-size: 6.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 7pt;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.payment-info-title::before {
+  content: '';
+  width: 8px;
+  height: 1pt;
+  background: var(--gold);
+  display: inline-block;
+}
+
+.bank-detail {
+  font-size: 8.5pt;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+.bank-detail .bank-label {
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink3);
+  font-weight: 500;
+  display: inline-block;
+  min-width: 90px;
+}
+
+/* ─── NOTES ─── */
+.notes-box {
+  border-left: 3pt solid var(--gold);
+  padding: 10pt 14pt;
+  background: var(--bg-alt);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 8.5pt;
+  line-height: 1.65;
+  color: var(--ink2);
+}
+
+/* ─── FOOTER ─── */
+.doc-footer {
+  margin-top: 16pt;
+  padding-top: 8pt;
+  border-top: 0.5pt solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-text {
+  font-size: 7pt;
+  color: #aaa;
+  letter-spacing: 0.06em;
+}
+.footer-mark {
+  font-family: var(--serif);
+  font-size: 8pt;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ─── UTILITIES ─── */
+.keep-together {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.amount-words {
+  font-size: 8pt;
+  color: var(--ink3);
+  font-style: italic;
+  margin-top: 4pt;
+  text-align: right;
+  padding-right: 10pt;
+}
+
+/* ─── DUE DATE HIGHLIGHT ─── */
+.due-highlight {
+  display: flex;
+  align-items: center;
+  gap: 12pt;
+  padding: 10pt 14pt;
+  background: var(--ink);
+  border-radius: var(--radius);
+  margin-bottom: 14pt;
+}
+.due-highlight .due-label {
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+}
+.due-highlight .due-value {
+  font-family: var(--serif);
+  font-size: 14pt;
+  font-weight: 600;
+  color: var(--gold2);
+}
+.due-highlight .due-status {
+  margin-left: auto;
+}
+
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- HEADER -->
+  <header class="doc-header keep-together">
+    <div class="brand">
+      <div class="doc-badge">Invoice</div>
+      <div class="doc-title">Invoice</div>
+      <div class="doc-sub">Website Development · Product Catalog & Inquiry Platform</div>
+    </div>
+    <div class="doc-meta">
+      <div class="meta-label">Invoice No.</div>
+      <div class="meta-value">INV-2026-001</div>
+      <div class="meta-sep"></div>
+      <div class="meta-label">Date</div>
+      <div class="meta-value">28 April 2026</div>
+    </div>
+  </header>
+
+  <!-- DUE DATE BAR -->
+  <div class="due-highlight keep-together">
+    <div>
+      <div class="due-label">Payment Due</div>
+      <div class="due-value">Upon Receipt</div>
+    </div>
+    <div class="due-status">
+      <span class="status-badge pending">Pending</span>
+    </div>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="section keep-together">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Bill From / Bill To</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="parties-grid">
+      <div class="party-card from">
+        <div class="party-role">From</div>
+        <div class="party-name">Om Bajirao Thakur</div>
+        <div class="party-detail">
+          +91 77568 98550<br>
+          omthakur2366@gmail.com<br>
+          omthakur.in
+        </div>
+      </div>
+      <div class="party-divider"></div>
+      <div class="party-card to">
+        <div class="party-role">Bill To</div>
+        <div class="party-name">FertiSure (HSIL)<br>Kunal</div>
+        <div class="party-detail">
+          +91 79778 92678 / 88502 05067<br>
+          kunalb@hemantsurgical.com
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFERENCE -->
+  <div class="section keep-together">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Reference</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="notes-box">
+      As per Website Development Agreement dated 16 April 2026 — Product Catalog & Inquiry Platform for IVF Equipment.
+    </div>
+  </div>
+
+  <!-- ITEMISED SERVICES -->
+  <div class="section keep-together">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Itemised Services</span>
+      <span class="section-line"></span>
+    </div>
+    <table class="invoice-table">
+      <thead>
+        <tr>
+          <th style="width:6%">#</th>
+          <th style="width:54%">Description</th>
+          <th style="width:12%">Qty</th>
+          <th style="width:14%">Rate</th>
+          <th style="width:14%">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>
+            Next.js Responsive Website Development
+            <div class="item-desc">Product catalog with categories, detail pages, cart-based inquiry system, UI animations & micro-interactions</div>
+          </td>
+          <td>1</td>
+          <td>₹30,000</td>
+          <td>₹30,000</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>
+            Admin Dashboard
+            <div class="item-desc">Inquiry management, product CRUD operations, category management & catalog organisation</div>
+          </td>
+          <td>1</td>
+          <td>₹15,000</td>
+          <td>₹15,000</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>
+            Backend & Infrastructure Setup
+            <div class="item-desc">Database setup & configuration, inquiry notification system</div>
+          </td>
+          <td>1</td>
+          <td>₹10,000</td>
+          <td>₹10,000</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>
+            SEO & Deployment
+            <div class="item-desc">Advanced SEO setup, deployment assistance & production configuration</div>
+          </td>
+          <td>1</td>
+          <td>₹10,000</td>
+          <td>₹10,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- TOTALS -->
+    <div class="totals-wrapper">
+      <div class="totals-box">
+        <div class="totals-row">
+          <span class="label">Subtotal</span>
+          <span class="value">₹65,000</span>
+        </div>
+        <div class="totals-row">
+          <span class="label">Discount</span>
+          <span class="value">₹0</span>
+        </div>
+        <div class="totals-row">
+          <span class="label">Tax</span>
+          <span class="value">₹0</span>
+        </div>
+        <div class="totals-row grand">
+          <span class="label">Total Due</span>
+          <span class="value">₹65,000</span>
+        </div>
+      </div>
+    </div>
+    <div class="amount-words">Sixty-Five Thousand Rupees Only</div>
+  </div>
+
+  <!-- PAYMENT SCHEDULE -->
+  <div class="section keep-together">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Payment Schedule</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="payment-info-grid">
+      <div class="payment-info-card">
+        <div class="payment-info-title">Installment 1 — 50%</div>
+        <div class="bank-detail">
+          <strong style="font-size:14pt;font-family:var(--serif);color:var(--ink);">₹32,500</strong><br>
+          <span style="font-size:7.5pt;color:var(--ink3);margin-top:3pt;display:inline-block;">Due upon demo approval by client</span><br>
+          <span class="status-badge pending" style="margin-top:6pt;">Pending</span>
+        </div>
+      </div>
+      <div class="payment-info-card">
+        <div class="payment-info-title">Installment 2 — 50%</div>
+        <div class="bank-detail">
+          <strong style="font-size:14pt;font-family:var(--serif);color:var(--ink);">₹32,500</strong><br>
+          <span style="font-size:7.5pt;color:var(--ink3);margin-top:3pt;display:inline-block;">Due before final delivery of project</span><br>
+          <span class="status-badge pending" style="margin-top:6pt;">Upcoming</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="section keep-together">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">Notes & Terms</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="notes-box">
+      <strong style="font-size:7pt;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2);display:block;margin-bottom:5pt;">Terms</strong>
+      Payment is due as per the schedule outlined above. This invoice is generated in accordance with the Website Development Agreement dated 16 April 2026. Late payments may delay project deliverables. All amounts are in Indian Rupees (₹).
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <span class="footer-text">Invoice INV-2026-001 · FertiSure (HSIL) × omthakur.in · April 2026</span>
+    <span class="footer-mark">Page 1 of 1</span>
+  </div>
+
+</div><!-- /sheet -->
+</body>
+</html>
