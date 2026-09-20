@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commercial Quotation & Scope of Work — CREA HR Advisory | SoWeBuild</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+/* ─── PAGE & PRINT SPECIFICATIONS ─── */
+@page {
+  size: 210mm auto;
+  margin: 14mm 14mm 16mm 14mm;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink:          #090d16;
+  --ink-body:     #1e293b;
+  --ink-muted:    #334155;
+  --ink-soft:     #475569;
+  --rule:         #cbd5e1;
+  --rule-light:   #e2e8f0;
+  --gold:         #a16207;
+  --gold-dark:    #854d0e;
+  --gold-light:   #d97706;
+  --gold-soft:    #fefce8;
+  --gold-border:  #fde047;
+  --bg-page:      #e2e8f0;
+  --bg-alt:       #f8fafc;
+  --bg-card:      #ffffff;
+  --white:        #ffffff;
+  --radius:       8px;
+  --serif:        'Cormorant Garamond', Georgia, serif;
+  --sans:         'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+html, body {
+  background: var(--bg-page);
+  font-family: var(--sans);
+  font-size: 10pt;
+  line-height: 1.6;
+  color: var(--ink-body);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ─── CONTINUOUS A4 SHEET ─── */
+.sheet {
+  width: 210mm;
+  margin: 24px auto;
+  background: var(--white);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+  padding: 16mm 16mm 18mm;
+  position: relative;
+}
+
+@media print {
+  html, body { background: white; margin: 0; }
+  .sheet {
+    width: 100%;
+    margin: 0;
+    padding: 12mm 12mm 14mm;
+    box-shadow: none;
+  }
+}
+
+/* ─── ELEGANT DUAL FRAME BORDER ─── */
+.sheet::before {
+  content: '';
+  position: absolute;
+  top: 7mm;
+  left: 7mm;
+  right: 7mm;
+  bottom: 7mm;
+  border: 1pt solid var(--rule);
+  border-radius: 4px;
+  pointer-events: none;
+}
+.sheet::after {
+  content: '';
+  position: absolute;
+  top: 8.5mm;
+  left: 8.5mm;
+  right: 8.5mm;
+  bottom: 8.5mm;
+  border: 0.75pt solid rgba(161, 98, 7, 0.4);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* ─── QUOTATION HEADER ─── */
+.doc-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 20px;
+  padding-bottom: 14pt;
+  border-bottom: 2pt solid var(--ink);
+  margin-bottom: 16pt;
+}
+
+.brand-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.quotation-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 8pt;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+.quotation-badge::before {
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.doc-title {
+  font-family: var(--serif);
+  font-size: 27pt;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.doc-subtitle {
+  font-size: 9.5pt;
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin-top: 3pt;
+}
+
+.header-meta-box {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 4pt;
+  background: var(--bg-alt);
+  border: 1pt solid var(--rule);
+  padding: 8pt 12pt;
+  border-radius: var(--radius);
+}
+.meta-row {
+  display: flex;
+  flex-direction: column;
+}
+.meta-tag {
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+.meta-val {
+  font-family: var(--sans);
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ─── SECTION HEADER ─── */
+.section {
+  margin-bottom: 15pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.section-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8pt;
+}
+.sec-number {
+  font-family: var(--serif);
+  font-size: 11pt;
+  color: var(--gold-dark);
+  font-weight: 700;
+  min-width: 22px;
+}
+.sec-heading {
+  font-size: 8.5pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink);
+}
+.sec-divider {
+  flex: 1;
+  height: 1pt;
+  background: var(--rule);
+}
+
+/* ─── PARTIES CARDS ─── */
+.parties-container {
+  display: grid;
+  grid-template-columns: 1fr 36px 1fr;
+  gap: 0;
+  margin-bottom: 12pt;
+}
+.party-panel {
+  padding: 12pt 14pt;
+  background: var(--bg-alt);
+  border: 1pt solid var(--rule);
+}
+.party-panel.agency {
+  border-radius: var(--radius) 0 0 var(--radius);
+  border-right: none;
+}
+.party-panel.client {
+  border-radius: 0 var(--radius) var(--radius) 0;
+  border-left: none;
+  background: #f8fafc;
+}
+.party-separator {
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 13pt;
+}
+.party-role-tag {
+  font-size: 7.2pt;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  color: var(--gold-dark);
+  margin-bottom: 3pt;
+}
+.party-name-bold {
+  font-family: var(--serif);
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 5pt;
+}
+.party-info-row {
+  font-size: 9pt;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+.party-info-row strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* ─── COMMERCIAL STRUCTURE CALLOUT ─── */
+.notice-box {
+  border-left: 3.5pt solid var(--gold);
+  background: #fefce8;
+  border-top: 1pt solid #fef08a;
+  border-right: 1pt solid #fef08a;
+  border-bottom: 1pt solid #fef08a;
+  padding: 10pt 14pt;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-bottom: 12pt;
+}
+.notice-box.commercial-clarity {
+  border-left-color: var(--ink);
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+.notice-title {
+  font-weight: 800;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  margin-bottom: 4pt;
+}
+.notice-body {
+  font-size: 9.3pt;
+  line-height: 1.55;
+  color: var(--ink-body);
+}
+
+/* ─── TWO KEY TIERS CARDS ─── */
+.pricing-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10pt;
+  margin-bottom: 12pt;
+}
+.overview-card {
+  border: 1pt solid var(--rule);
+  border-radius: var(--radius);
+  padding: 12pt 14pt;
+  background: var(--bg-alt);
+  position: relative;
+}
+.overview-card.primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+.card-tier-label {
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  color: var(--gold-dark);
+  margin-bottom: 2pt;
+}
+.overview-card.primary .card-tier-label {
+  color: #fde047;
+}
+.card-price-headline {
+  font-family: var(--sans);
+  font-size: 22pt;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 4pt;
+}
+.overview-card.primary .card-price-headline {
+  color: var(--white);
+}
+.card-desc-lead {
+  font-size: 8.8pt;
+  color: var(--ink-muted);
+  line-height: 1.45;
+}
+.overview-card.primary .card-desc-lead {
+  color: #cbd5e1;
+}
+.card-bullets {
+  list-style: none;
+  margin-top: 8pt;
+  display: flex;
+  flex-direction: column;
+  gap: 4pt;
+}
+.card-bullets li {
+  font-size: 8.8pt;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  line-height: 1.35;
+  color: var(--ink-body);
+}
+.overview-card.primary .card-bullets li {
+  color: #f1f5f9;
+}
+.card-bullets li::before {
+  content: '✓';
+  color: var(--gold-dark);
+  font-weight: 900;
+  font-size: 8pt;
+}
+.overview-card.primary .card-bullets li::before {
+  color: #fde047;
+}
+
+/* ─── DATA TABLE (CRISP & READABLE) ─── */
+.table-wrap {
+  border: 1pt solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 12pt;
+}
+.clean-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+}
+.clean-table th {
+  background: var(--ink);
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 7.2pt;
+  font-weight: 800;
+  padding: 8pt 12pt;
+  text-align: left;
+}
+.clean-table th.tar {
+  text-align: right;
+}
+.clean-table td {
+  padding: 6.5pt 12pt;
+  border-bottom: 1pt solid var(--rule-light);
+  color: var(--ink-body);
+  vertical-align: middle;
+}
+.clean-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+.clean-table tr:hover td {
+  background: #f1f5f9;
+}
+.clean-table td.col-service {
+  font-weight: 700;
+  color: var(--ink);
+  width: 28%;
+}
+.clean-table td.col-details {
+  color: var(--ink-muted);
+  line-height: 1.45;
+  width: 54%;
+}
+.clean-table td.col-amount {
+  text-align: right;
+  font-weight: 800;
+  font-family: var(--sans);
+  color: var(--ink);
+  white-space: nowrap;
+  width: 18%;
+}
+.clean-table tr.total-highlight td {
+  background: var(--ink) !important;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 9.8pt;
+  border-top: 2pt solid var(--gold);
+}
+.clean-table tr.total-highlight td.col-amount {
+  color: #fde047;
+  font-size: 13pt;
+  font-family: var(--sans);
+  letter-spacing: -0.01em;
+}
+
+/* ─── THREE COLUMN ARCHITECTURE BOXES ─── */
+.architecture-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 9pt;
+  margin-bottom: 12pt;
+}
+.arch-box {
+  border: 1pt solid var(--rule);
+  border-radius: var(--radius);
+  padding: 9pt 11pt;
+  background: var(--white);
+}
+.arch-box-title {
+  font-size: 7.5pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-dark);
+  margin-bottom: 5pt;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.arch-box-title::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: inline-block;
+}
+.arch-list {
+  list-style: none;
+  padding: 0;
+}
+.arch-list li {
+  font-size: 8.4pt;
+  color: var(--ink-muted);
+  padding: 3pt 0 3pt 11pt;
+  position: relative;
+  line-height: 1.35;
+  border-bottom: 0.5pt dashed var(--rule-light);
+}
+.arch-list li:last-child {
+  border-bottom: none;
+}
+.arch-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: bold;
+}
+.arch-list li strong {
+  color: var(--ink);
+}
+
+/* ─── PERFORMANCE BOX ─── */
+.speed-target-card {
+  background: #f8fafc;
+  border: 1pt solid var(--rule);
+  border-left: 3.5pt solid var(--gold);
+  padding: 10pt 14pt;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-bottom: 12pt;
+}
+.speed-headline {
+  font-size: 8pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  margin-bottom: 3pt;
+}
+.speed-content {
+  font-size: 9.2pt;
+  line-height: 1.5;
+  color: var(--ink-body);
+}
+
+/* ─── MILESTONES ROW ─── */
+.milestones-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 9pt;
+  margin-bottom: 12pt;
+}
+.milestone-item {
+  border: 1pt solid var(--rule);
+  border-radius: var(--radius);
+  padding: 10pt 12pt;
+  background: var(--bg-alt);
+}
+.milestone-item.active {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+.ms-label {
+  font-size: 7.2pt;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--gold-dark);
+  margin-bottom: 2pt;
+}
+.ms-price {
+  font-family: var(--sans);
+  font-size: 16pt;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.ms-share {
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: 4pt;
+}
+.ms-explanation {
+  font-size: 8.2pt;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+/* ─── POLICY GRID ─── */
+.policy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9pt;
+  margin-bottom: 12pt;
+}
+.policy-card {
+  border: 1pt solid var(--rule);
+  border-radius: var(--radius);
+  padding: 9pt 12pt;
+  background: var(--white);
+  font-size: 8.6pt;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+.policy-title {
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 4pt;
+  display: block;
+}
+
+/* ─── SIGNATURE BLOCK ─── */
+.sign-off-section {
+  margin-top: 14pt;
+  padding-top: 10pt;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.sign-off-intro {
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 14pt;
+  font-style: italic;
+}
+.sign-off-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26pt;
+}
+.sign-party-block {
+  display: flex;
+  flex-direction: column;
+}
+.sign-name {
+  font-family: var(--serif);
+  font-size: 15pt;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.sign-title {
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-dark);
+  font-weight: 800;
+  margin-bottom: 24pt;
+}
+.sign-line-group {
+  display: flex;
+  gap: 14pt;
+  margin-bottom: 9pt;
+}
+.sign-field {
+  flex: 1;
+}
+.sign-label {
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  font-weight: 700;
+  margin-bottom: 3pt;
+}
+.sign-solid-line {
+  height: 1pt;
+  background: var(--ink);
+}
+
+/* ─── FOOTER ─── */
+.doc-footer {
+  margin-top: 14pt;
+  padding-top: 9pt;
+  border-top: 1pt solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 7.5pt;
+  color: var(--ink-soft);
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 9.5pt;
+  color: var(--gold-dark);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- ─── HEADER ─── -->
+  <header class="doc-header">
+    <div class="brand-section">
+      <div class="quotation-badge">SoWeBuild · Digital Engineering &amp; Growth</div>
+      <h1 class="doc-title">Commercial Quotation &amp; Scope</h1>
+      <p class="doc-subtitle">HR Advisory Corporate Platform · Business Management Infrastructure · AI HR Assistant</p>
+    </div>
+    <div class="header-meta-box">
+      <div class="meta-row">
+        <span class="meta-tag">Quotation Ref</span>
+        <span class="meta-val">SWB-CREA-QT-2026</span>
+      </div>
+      <div class="meta-row" style="margin-top:4pt;">
+        <span class="meta-tag">Date of Issue</span>
+        <span class="meta-val">September 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── PARTIES INVOLVED ─── -->
+  <div class="section">
+    <div class="section-title-bar">
+      <span class="sec-number">01</span>
+      <span class="sec-heading">Client &amp; Agency Identification</span>
+      <span class="sec-divider"></span>
+    </div>
+    <div class="parties-container">
+      <div class="party-panel agency">
+        <div class="party-role-tag">Prepared By · Technology Partner</div>
+        <div class="party-name-bold">SoWeBuild</div>
+        <div class="party-info-row">
+          <strong>Lead Architect:</strong> Om Bajirao Thakur<br>
+          <strong>Email:</strong> sowebuild.in@gmail.com<br>
+          <strong>Direct Line:</strong> +91 77568 98550<br>
+          <strong>Web:</strong> sowebuild.in
+        </div>
+      </div>
+      <div class="party-separator">⇄</div>
+      <div class="party-panel client">
+        <div class="party-role-tag">Quotation Prepared For</div>
+        <div class="party-name-bold">CREA HR ADVISORY</div>
+        <div class="party-info-row">
+          <strong>Key Contact:</strong> Dinesh Jogi<br>
+          <strong>Designation:</strong> Founder<br>
+          <strong>Contact Number:</strong> +91 9920367597<br>
+          <strong>Domain:</strong> Strategic Human Resources Advisory
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── EXECUTIVE COMMERCIAL OVERVIEW ─── -->
+  <div class="section">
+    <div class="section-title-bar">
+      <span class="sec-number">02</span>
+      <span class="sec-heading">Commercial Structure &amp; Billing Principles</span>
+      <span class="sec-divider"></span>
+    </div>
+    
+    <div class="notice-box commercial-clarity">
+      <div class="notice-title">Transparent Engagement Model</div>
+      <div class="notice-body">
+        This commercial quotation outlines a modular, highly value-justified engineering engagement structured into two straightforward tiers:
+        <strong>(1) One-Time Development &amp; Launch: ₹65,000</strong> — Month 1 development, technical setup, production deployment, and launch infrastructure are <strong>100% covered</strong> under this fee.
+        <strong>(2) Managed Infrastructure &amp; Growth Retainer: ₹7,999/month</strong> — billing commences on <strong>Month 2</strong> post-launch for managed hosting, database backups, security, ongoing SEO support, content publishing, and AI assistant operations.
+        <em>There is no bundled upfront commitment or quote of ₹1,61,000; the project is completely transparent and staged.</em>
+      </div>
+    </div>
+
+    <div class="pricing-overview-grid">
+      <div class="overview-card primary">
+        <div class="card-tier-label">Phase 1 · One-Time Development</div>
+        <div class="card-price-headline">₹65,000</div>
+        <div class="card-desc-lead">Complete Platform Build &amp; Launch (Month 1 fully covered)</div>
+        <ul class="card-bullets">
+          <li>Premium UI/UX Design Tailored for HR Advisory Trust</li>
+          <li>High-Speed Responsive Frontend Engineering</li>
+          <li>Business Management Infrastructure (Backend &amp; Database)</li>
+          <li>AI HR Assistant (Conversational Chatbot + LLM Setup)</li>
+          <li>Advanced Technical SEO Foundation &amp; 3 Launch Articles</li>
+          <li>Google Search Console Setup &amp; Indexing Configuration</li>
+          <li>90+ PageSpeed Launch Performance Target</li>
+          <li>Month 1 Production Hosting, SSL &amp; Launch Operations Included</li>
+        </ul>
+      </div>
+
+      <div class="overview-card">
+        <div class="card-tier-label">Phase 2 · Ongoing Monthly Retainer</div>
+        <div class="card-price-headline">₹7,999<span style="font-size:11pt;font-weight:600;color:var(--ink-soft);"> / month</span></div>
+        <div class="card-desc-lead">Managed Cloud Infra &amp; Growth (Commences Month 2 onwards)</div>
+        <ul class="card-bullets">
+          <li>Production Cloud Hosting &amp; Global CDN Caching</li>
+          <li>Managed Database with Automated Daily Backups</li>
+          <li>AI HR Assistant Infrastructure &amp; Monthly Token Allowance</li>
+          <li>Proactive SSL, Security Patches &amp; Uptime Monitoring</li>
+          <li>Technical SEO Health &amp; Search Console Query Monitoring</li>
+          <li>Ongoing Organic Content: 2 SEO Articles Published / Month</li>
+          <li>Routine Bug Fixes, Dependency Updates &amp; Priority Tech Support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SCOPE OF WORK BREAKDOWN (₹65,000) ─── -->
+  <div class="section">
+    <div class="section-title-bar">
+      <span class="sec-number">03</span>
+      <span class="sec-heading">One-Time Development Scope (₹65,000 Itemized Breakdown)</span>
+      <span class="sec-divider"></span>
+    </div>
+
+    <div class="table-wrap">
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th>Service / Component</th>
+            <th>Detailed Engineering Scope &amp; Deliverables</th>
+            <th class="tar">Package Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-service">Premium UI/UX Design</td>
+            <td class="col-details">Bespoke advisory branding, high-trust color palette, typography hierarchy, conversion-focused wireframes, responsive mobile/desktop layouts, and interactive UI prototypes.</td>
+            <td class="col-amount">₹12,000</td>
+          </tr>
+          <tr>
+            <td class="col-service">Responsive Frontend Engineering</td>
+            <td class="col-details">Modern accessible frontend architecture, smooth scroll physics, interactive components, zero-clutter forms, and flawless cross-browser display on mobile, tablet, and desktop.</td>
+            <td class="col-amount">₹14,000</td>
+          </tr>
+          <tr>
+            <td class="col-service">Backend Development &amp; APIs</td>
+            <td class="col-details">Secure business logic API endpoints, inquiry intake routing, contact sanitization, rate-limiting, and structured response systems.</td>
+            <td class="col-amount">₹8,000</td>
+          </tr>
+          <tr>
+            <td class="col-service">Database Architecture &amp; Setup</td>
+            <td class="col-details">Relational schema design, structured models for inquiries, corporate leads, advisory service bookings, indexing, connection pooling, and data encryption.</td>
+            <td class="col-amount">₹5,000</td>
+          </tr>
+          <tr>
+            <td class="col-service">AI Chatbot Integration</td>
+            <td class="col-details">Bespoke conversational AI widget, LLM integration, custom system prompt engineering, HR domain knowledge base configuration, and fallback handling.</td>
+            <td class="col-amount">₹4,000</td>
+          </tr>
+          <tr>
+            <td class="col-service">Technical SEO Implementation</td>
+            <td class="col-details">Semantic HTML5 architecture, canonical tags, automated XML sitemaps, robots.txt, schema markup (Organization, Service, FAQ), Open Graph metadata, clean URLs, and 404 routing.</td>
+            <td class="col-amount">₹5,000</td>
+          </tr>
+          <tr>
+            <td class="col-service">Advanced SEO Foundation</td>
+            <td class="col-details">Keyword mapping for high-value HR consulting queries, on-page H1-H3 hierarchy, internal linking structure, and image alt text optimization.</td>
+            <td class="col-amount">₹4,000</td>
+          </tr>
+          <tr>
+            <td class="col-service">Blog / Insights Publishing System</td>
+            <td class="col-details">Dynamic publishing engine for corporate HR advisories, articles, and whitepapers. Includes author tagging, category routing, and 3 initial launch SEO articles.</td>
+            <td class="col-amount">₹3,000</td>
+          </tr>
+          <tr>
+            <td class="col-service">Google Search Console &amp; Indexing</td>
+            <td class="col-details">DNS domain verification, XML sitemap registration, manual indexing submission for key pages, and crawl coverage monitoring.</td>
+            <td class="col-amount">₹2,000</td>
+          </tr>
+          <tr>
+            <td class="col-service">Analytics &amp; Conversion Tracking</td>
+            <td class="col-details">GA4 telemetry setup, lead capture event triggers, consultation call-to-action tracking, outbound click monitoring, and traffic reporting.</td>
+            <td class="col-amount">₹1,500</td>
+          </tr>
+          <tr>
+            <td class="col-service">Performance Optimization (90+ Target)</td>
+            <td class="col-details">Asset compression, WebP images, font preloading, critical CSS delivery, lazy loading, and Core Web Vitals tuning targeting 90+ PageSpeed score.</td>
+            <td class="col-amount">₹3,000</td>
+          </tr>
+          <tr>
+            <td class="col-service">Security, SSL &amp; Deployment</td>
+            <td class="col-details">Automated SSL certificate provisioning, HTTP/2 enforcement, security headers (CSP, HSTS), environment variable isolation, and production launch setup.</td>
+            <td class="col-amount">₹1,500</td>
+          </tr>
+          <tr>
+            <td class="col-service">Testing &amp; Production Launch</td>
+            <td class="col-details">Cross-device QA (Chrome, Safari, Edge, Firefox, iOS, Android), form submission integrity audits, stress tests, and official production deployment.</td>
+            <td class="col-amount">₹2,000</td>
+          </tr>
+          <tr class="total-highlight">
+            <td colspan="2">TOTAL ONE-TIME DEVELOPMENT INVESTMENT (Includes Month 1 Full Coverage)</td>
+            <td class="col-amount">₹65,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ─── ARCHITECTURAL SPECIFICATIONS ─── -->
+  <div class="section">
+    <div class="section-title-bar">
+      <span class="sec-number">04</span>
+      <span class="sec-heading">Platform Architecture &amp; Intelligence Layer</span>
+      <span class="sec-divider"></span>
+    </div>
+
+    <div class="architecture-grid">
+      <div class="arch-box">
+        <div class="arch-box-title">Business Management Infra</div>
+        <ul class="arch-list">
+          <li><strong>Secure Backend:</strong> Hardened API routes with validation and CSRF defenses.</li>
+          <li><strong>Lead Capture:</strong> Infallible contact ingestion engine with instant email notifications.</li>
+          <li><strong>Database Integrity:</strong> Relational models with strict schema constraints and pooling.</li>
+          <li><strong>Admin Console:</strong> Dedicated administrative view to inspect leads and inquiry submissions.</li>
+          <li><strong>Automated Backups:</strong> Point-in-time snapshot capability and disaster recovery readiness.</li>
+        </ul>
+      </div>
+
+      <div class="arch-box">
+        <div class="arch-box-title">AI HR Assistant Layer</div>
+        <ul class="arch-list">
+          <li><strong>Bespoke Chat UI:</strong> Elegant, brand-aligned floating widget on desktop and mobile.</li>
+          <li><strong>Domain Ingestion:</strong> Grounded in CREA HR's service offerings, policies, and FAQs.</li>
+          <li><strong>Pre-Qualification:</strong> Collects visitor requirements and routes qualified leads.</li>
+          <li><strong>Guardrails:</strong> Robust fallback protocols preventing off-topic responses or hallucination.</li>
+          <li><strong>Abuse Protection:</strong> IP-based rate limiting and prompt-injection defenses.</li>
+        </ul>
+      </div>
+
+      <div class="arch-box">
+        <div class="arch-box-title">SEO &amp; Insights Engine</div>
+        <ul class="arch-list">
+          <li><strong>High-Intent Targeting:</strong> HR compliance, retention, talent management, advisory tags.</li>
+          <li><strong>Structured Schemas:</strong> ProfessionalService, Article, and FAQPage JSON-LD.</li>
+          <li><strong>Insights Engine:</strong> Scalable article publishing module for thought leadership.</li>
+          <li><strong>3 Launch Articles:</strong> 3 foundational, search-optimized articles written for launch.</li>
+          <li><strong>Google Indexing:</strong> Automated XML sitemaps and index coverage validation.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── PERFORMANCE STANDARDS ─── -->
+  <div class="section">
+    <div class="section-title-bar">
+      <span class="sec-number">05</span>
+      <span class="sec-heading">Performance Benchmark Target</span>
+      <span class="sec-divider"></span>
+    </div>
+
+    <div class="speed-target-card">
+      <div class="speed-headline">PageSpeed Insights Performance Target</div>
+      <div class="speed-content">
+        The platform will be engineered with a target of achieving <strong>90+ PageSpeed Insights</strong> performance scores under agreed baseline testing conditions at launch. Optimization includes Core Web Vitals benchmarks (LCP under 2.5s, CLS under 0.1, INP minimization), image optimization, script minification, browser caching, and edge CDN distribution. Verification shall be conducted using <a href="https://pagespeed.web.dev/" target="_blank" style="color:var(--gold-dark);text-decoration:none;font-weight:700;">Google PageSpeed Insights</a>.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MONTHLY INFRASTRUCTURE & GROWTH (₹7,999/MONTH) ─── -->
+  <div class="section">
+    <div class="section-title-bar">
+      <span class="sec-number">06</span>
+      <span class="sec-heading">Managed Infrastructure &amp; Growth Retainer (₹7,999 / Month)</span>
+      <span class="sec-divider"></span>
+    </div>
+
+    <p style="font-size:9.2pt;color:var(--ink-muted);margin-bottom:8pt;">
+      Starting in <strong>Month 2</strong> post-launch, SoWeBuild provides a fully managed platform infrastructure and continuous growth operations service for <strong>₹7,999/month</strong>.
+    </p>
+
+    <div class="table-wrap">
+      <table class="clean-table">
+        <thead>
+          <tr>
+            <th>Managed Service Area</th>
+            <th>Operational Inclusions &amp; Recurring Deliverables</th>
+            <th class="tar">Package Allocation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-service">Production Hosting &amp; Global CDN</td>
+            <td class="col-details">High-availability cloud server compute, edge content delivery, SSL auto-renewal, and uptime monitoring.</td>
+            <td class="col-amount">₹1,250</td>
+          </tr>
+          <tr>
+            <td class="col-service">Backend &amp; API Infrastructure</td>
+            <td class="col-details">API compute runtime, serverless execution limits, error logging, and latency optimization.</td>
+            <td class="col-amount">₹850</td>
+          </tr>
+          <tr>
+            <td class="col-service">Database Hosting &amp; Management</td>
+            <td class="col-details">Cloud database storage, memory allocation, active query monitoring, and maintenance.</td>
+            <td class="col-amount">₹850</td>
+          </tr>
+          <tr>
+            <td class="col-service">Automated Database Backups</td>
+            <td class="col-details">Automated daily snapshot redundancy, data retention protocols, and recovery readiness.</td>
+            <td class="col-amount">₹500</td>
+          </tr>
+          <tr>
+            <td class="col-service">AI Assistant Infra &amp; Token Allowance</td>
+            <td class="col-details">Monthly LLM API token allowance, conversation telemetry, prompt fine-tuning, and knowledge updates.</td>
+            <td class="col-amount">₹600</td>
+          </tr>
+          <tr>
+            <td class="col-service">Security &amp; SSL Management</td>
+            <td class="col-details">Continuous certificate audits, vulnerability patching, firewall maintenance, and access safeguards.</td>
+            <td class="col-amount">₹350</td>
+          </tr>
+          <tr>
+            <td class="col-service">CDN, Caching &amp; Speed Audits</td>
+            <td class="col-details">Edge cache invalidation, Core Web Vitals maintenance, bandwidth allocation, and asset delivery optimization.</td>
+            <td class="col-amount">₹500</td>
+          </tr>
+          <tr>
+            <td class="col-service">Website Maintenance &amp; Bug Fixes</td>
+            <td class="col-details">Software dependency upgrades, framework patches, minor CSS tweaks, and routine bug resolution.</td>
+            <td class="col-amount">₹950</td>
+          </tr>
+          <tr>
+            <td class="col-service">Technical SEO Maintenance</td>
+            <td class="col-details">Ongoing crawl audits, 404 detection, canonical link checks, and automated sitemap synchronizations.</td>
+            <td class="col-amount">₹600</td>
+          </tr>
+          <tr>
+            <td class="col-service">Google Search Console Monitoring</td>
+            <td class="col-details">Search query impressions analysis, indexing coverage validation, and mobile usability tracking.</td>
+            <td class="col-amount">₹350</td>
+          </tr>
+          <tr>
+            <td class="col-service">Blog / SEO Content Production</td>
+            <td class="col-details">Publishing of up to 2 search-optimized articles/month (with client-provided subject matter or AI-assisted content).</td>
+            <td class="col-amount">₹600</td>
+          </tr>
+          <tr>
+            <td class="col-service">Analytics &amp; Performance Tracking</td>
+            <td class="col-details">Monthly user acquisition breakdown, conversion funnel tracking, and platform health review.</td>
+            <td class="col-amount">₹350</td>
+          </tr>
+          <tr>
+            <td class="col-service">Priority Technical Support</td>
+            <td class="col-details">Direct developer telephone/email channel, DNS troubleshooting, configuration advice, and guidance.</td>
+            <td class="col-amount">₹849</td>
+          </tr>
+          <tr class="total-highlight">
+            <td colspan="2">TOTAL MONTHLY MANAGED RETAINER (Commences Month 2 Onwards)</td>
+            <td class="col-amount">₹7,999 / mo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ─── MILESTONES & PAYMENT SCHEDULE ─── -->
+  <div class="section">
+    <div class="section-title-bar">
+      <span class="sec-number">07</span>
+      <span class="sec-heading">Payment Milestones &amp; Billing Schedule</span>
+      <span class="sec-divider"></span>
+    </div>
+
+    <div class="milestones-row">
+      <div class="milestone-item">
+        <div class="ms-label">Milestone 01 · Commencement</div>
+        <div class="ms-price">₹32,500</div>
+        <div class="ms-share">50% of One-Time Fee</div>
+        <div class="ms-explanation">Due upon formal quotation approval &amp; initiation of design system, UX architecture, and prototype sprints.</div>
+      </div>
+
+      <div class="milestone-item active">
+        <div class="ms-label">Milestone 02 · Final Delivery</div>
+        <div class="ms-price">₹32,500</div>
+        <div class="ms-share">50% of One-Time Fee</div>
+        <div class="ms-explanation">Due upon demo sign-off, prior to production server deployment, DNS connection, and public launch.</div>
+      </div>
+
+      <div class="milestone-item">
+        <div class="ms-label">Recurring · Month 2 Onwards</div>
+        <div class="ms-price">₹7,999<span style="font-size:10pt;font-weight:600;color:var(--ink-soft);">/mo</span></div>
+        <div class="ms-share">Managed Growth Retainer</div>
+        <div class="ms-explanation">Invoiced on the 1st of each calendar month starting in Month 2. Covers hosting, database, AI allowance, SEO &amp; support.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CONTRACTUAL POLICIES & TERMS ─── -->
+  <div class="section">
+    <div class="section-title-bar">
+      <span class="sec-number">08</span>
+      <span class="sec-heading">Commercial Policies &amp; Terms</span>
+      <span class="sec-divider"></span>
+    </div>
+
+    <div class="policy-grid">
+      <div class="policy-card">
+        <span class="policy-title">1. Fair Usage Policy for AI HR Assistant</span>
+        AI usage is included within a generous monthly operating allowance sufficient for standard corporate advisory website traffic. Excessive usage or automated volumetric queries substantially above the agreed monthly allowance may incur additional API charges based strictly on actual third-party vendor pass-through costs.
+      </div>
+
+      <div class="policy-card">
+        <span class="policy-title">2. Month 1 Inclusion &amp; Retainer Terms</span>
+        All hosting, security configuration, AI setup, and operational deployment during Month 1 are fully absorbed into the ₹65,000 project fee. The monthly growth retainer of ₹7,999 begins strictly in Month 2. The monthly retainer operates on a flexible month-to-month basis cancellable by either party with 30 days written notice.
+      </div>
+
+      <div class="policy-card">
+        <span class="policy-title">3. Intellectual Property Ownership</span>
+        Upon receipt of full payment of the ₹65,000 development fee, all rights, title, and interest in the custom frontend code, styling, database schemas, and proprietary configurations transfer entirely to CREA HR Advisory. SoWeBuild retains the right to reference the project in its portfolio.
+      </div>
+
+      <div class="policy-card">
+        <span class="policy-title">4. Revisions &amp; Scope Governance</span>
+        Revisions within the defined project scope are accommodated prior to official deployment. The Client agrees to supply necessary corporate logos and domain details in a timely manner. New feature requests beyond this scope will be quoted as separate work orders.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SIGNATURES ─── -->
+  <div class="sign-off-section">
+    <div class="section-title-bar">
+      <span class="sec-number">09</span>
+      <span class="sec-heading">Quotation Acceptance &amp; Sign-Off</span>
+      <span class="sec-divider"></span>
+    </div>
+    <p class="sign-off-intro">
+      By signing below, the Client approves this commercial quotation and authorizes SoWeBuild to proceed with project commencement.
+    </p>
+
+    <div class="sign-off-grid">
+      <!-- Agency Block -->
+      <div class="sign-party-block">
+        <div class="sign-name">Om Bajirao Thakur</div>
+        <div class="sign-title">Lead Architect · SoWeBuild</div>
+        
+        <div class="sign-line-group">
+          <div class="sign-field">
+            <div class="sign-label">Authorized Signature</div>
+            <div class="sign-solid-line"></div>
+          </div>
+        </div>
+        <div class="sign-line-group">
+          <div class="sign-field">
+            <div class="sign-label">Date</div>
+            <div class="sign-solid-line"></div>
+          </div>
+          <div class="sign-field">
+            <div class="sign-label">Place</div>
+            <div class="sign-solid-line"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Client Block -->
+      <div class="sign-party-block">
+        <div class="sign-name">Dinesh Jogi</div>
+        <div class="sign-title">Founder · CREA HR ADVISORY · +91 9920367597</div>
+        
+        <div class="sign-line-group">
+          <div class="sign-field">
+            <div class="sign-label">Client Acceptance Signature</div>
+            <div class="sign-solid-line"></div>
+          </div>
+        </div>
+        <div class="sign-line-group">
+          <div class="sign-field">
+            <div class="sign-label">Date</div>
+            <div class="sign-solid-line"></div>
+          </div>
+          <div class="sign-field">
+            <div class="sign-label">Place</div>
+            <div class="sign-solid-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="doc-footer">
+    <span>SoWeBuild · Enterprise Web Engineering &amp; AI Systems · sowebuild.in@gmail.com · +91 77568 98550</span>
+    <span class="footer-logo">SoWeBuild × CREA HR Advisory</span>
+  </footer>
+
+</div><!-- /.sheet -->
+
+</body>
+</html>

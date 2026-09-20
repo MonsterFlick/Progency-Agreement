@@ -5,10 +5,18 @@ const fs = require('fs');
 (async () => {
     let browser;
     try {
-        const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
-        const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+        const candidatePaths = [
+            'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
+            'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe',
+            'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+            'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+            'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe'
+        ];
         
-        let execPath = fs.existsSync(edgePath) ? edgePath : chromePath;
+        let execPath = candidatePaths.find(p => fs.existsSync(p));
+        if (!execPath) {
+            throw new Error('No Chromium-based browser (Edge, Chrome, or Brave) found on system.');
+        }
 
         console.log(`Using browser: ${execPath}`);
         
