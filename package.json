@@ -1,4 +1,11 @@
 {
+  "name": "progency-agreements",
+  "version": "1.0.0",
+  "description": "Commercial agreements, quotations, and invoice generation toolkit",
+  "scripts": {
+    "build:pdf": "node scripts/generate-pdf.js",
+    "build:all": "node scripts/generate-pdf.js --all"
+  },
   "dependencies": {
     "puppeteer-core": "^24.41.0"
   }
